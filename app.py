@@ -2,6 +2,7 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 from PIL import Image
+import Mission
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -24,16 +25,17 @@ def local_css(file_name):
 local_css("style/style.css")
 
 # ---- LOAD ASSETS ----
-lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+lottie_coding = load_lottieurl("https://lottie.host/9e95fff7-6b74-4fef-9302-35b8ef3d7843/JiUsmBC3gC.json")
 img_contact_form = Image.open("images/yt_contact_form.png")
 img_lottie_animation = Image.open("images/yt_lottie_animation.png")
 
 # ---- HEADER SECTION ----
 with st.container():
-    st.subheader("Hi, I am Sven :wave:")
-    st.title("A Data Analyst From Germany")
+    option = st.sidebar.selectbox("Gears",["PROFILE","MISSIONS","HEROES","ABOUT US"])
+    st.subheader("WEBVENGERS:zap:")
+    st.title("Webvengers Assemble Here :earth_asia:")
     st.write(
-        "I am passionate about finding ways to use Python and VBA to be more efficient and effective in business settings."
+        "Get Ready to Dive in the Journey of Non-stop learning . Webvengers are here Now :superhero:"
     )
     st.write("[Learn More >](https://pythonandvba.com)")
 
@@ -42,17 +44,19 @@ with st.container():
     st.write("---")
     left_column, right_column = st.columns(2)
     with left_column:
-        st.header("What I do")
+        st.header("What we do")
         st.write("##")
         st.write(
             """
-            On my YouTube channel I am creating tutorials for people who:
-            - are looking for a way to leverage the power of Python in their day-to-day work.
-            - are struggling with repetitive tasks in Excel and are looking for a way to use Python and VBA.
-            - want to learn Data Analysis & Data Science to perform meaningful and impactful analyses.
-            - are working with Excel and found themselves thinking - "there has to be a better way."
+           Crafting the Webvengers Experience:
 
-            If this sounds interesting to you, consider subscribing and turning on the notifications, so you don’t miss any content.
+Age-appropriate challenges:  Design challenges with different difficulty levels for various age groups. Younger children can focus on basic problem-solving, while older kids can tackle more complex social dilemmas.
+
+Variety is key:  Offer a mix of activities to keep things engaging. This could include quizzes, interactive stories, simulations, and even creative tasks where kids design their superhero solutions.
+
+Storytelling power:  Embed problem-solving scenarios within a captivating superhero narrative. Maybe a villain is causing trouble in the city, and Webvengers need to use their skills to save the day.
+
+Social good focus:  Clearly connect problem-solving with real-world social duties. Show kids how their actions as Webvengers can translate to helping others in their community.
             """
         )
         st.write("[YouTube Channel >](https://youtube.com/c/CodingIsFun)")
@@ -62,39 +66,36 @@ with st.container():
 # ---- PROJECTS ----
 with st.container():
     st.write("---")
-    st.header("My Projects")
+    st.header("Topics")
     st.write("##")
     image_column, text_column = st.columns((1, 2))
     with image_column:
         st.image(img_lottie_animation)
     with text_column:
-        st.subheader("Integrate Lottie Animations Inside Your Streamlit App")
+        st.subheader("How to Develop Our Thing Ability like Ironman #ProblemSolver")
         st.write(
             """
-            Learn how to use Lottie Files in Streamlit!
-            Animations make our web app more engaging and fun, and Lottie Files are the easiest way to do it!
-            In this tutorial, I'll show you exactly how to do it
+           In this series we will enhance our Brain power and with easy Quiz earn Power Xp
             """
         )
-        st.markdown("[Watch Video...](https://youtu.be/TXSOitGoINE)")
+        st.markdown("[Watch Video...](https://youtu.be/Sd9MZdB1ItU?si=Q940TJTnSFNSq19u)")
 with st.container():
     image_column, text_column = st.columns((1, 2))
     with image_column:
         st.image(img_contact_form)
     with text_column:
-        st.subheader("How To Add A Contact Form To Your Streamlit App")
+        st.subheader("The Story to Establish the 3R away from City #Superman")
         st.write(
             """
-            Want to add a contact form to your Streamlit website?
-            In this video, I'm going to show you how to implement a contact form in your Streamlit app using the free service ‘Form Submit’.
+            How the our hero cleans up our city the mistry behind 3R is here ‘Form Submit’.
             """
         )
-        st.markdown("[Watch Video...](https://youtu.be/FOULV9Xij_8)")
+        st.markdown("[Watch Video...](https://youtu.be/OasbYWF4_S8?si=M8UMZ1jTYRT3rCvX)")
 
 # ---- CONTACT ----
 with st.container():
     st.write("---")
-    st.header("Get In Touch With Me!")
+    st.header("Get In Touch With Us!")
     st.write("##")
 
     # Documention: https://formsubmit.co/ !!! CHANGE EMAIL ADDRESS !!!
@@ -112,3 +113,6 @@ with st.container():
         st.markdown(contact_form, unsafe_allow_html=True)
     with right_column:
         st.empty()
+if option == 'MISSIONS':
+    Mission.app()
+    Mission.display_quiz()
